@@ -1,0 +1,92 @@
+//所有的button组件
+
+.btn {
+
+    &:link,
+    &:visited {
+      font-size: 2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      display: inline-block;
+      border-radius: 6rem;
+      transition: all 1s;
+      position: relative;
+    }
+  
+    &:hover {
+      transform: translateY(-.3rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  
+      /* box shadow: x y blur color */
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  
+    &:active {
+      transform: translateY(-.1rem);
+      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+  
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      border-radius: 5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+    }
+  
+    &--white {
+      background-color: #fff;
+      color: #777;
+  
+      &::after {
+        background-color: #fff;
+      }
+    }
+  
+    &--acvitor {
+      animation: moveInBottom 2s ease-out 1s;
+      animation-fill-mode: backwards;
+    }
+
+    &--primary{
+      background-color: $color-primary;
+      color:$color-text-light;
+
+      &::after {
+        background-color: $color-primary;
+      }
+    }
+  }
+
+  .btn-text{
+    &:link,
+    &:visited{
+      display: inline-block;
+      font-size: $default-font-size;
+      text-decoration: none;
+      color: $color-primary;
+      border-bottom: 1px solid $color-primary;
+      transition: all .2s;
+      padding: 3px;
+    }
+    &:hover{
+      background-color: $color-primary;
+      color: $color-text-light;
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    }
+    &:active{
+      transform: translateY(0);
+    }
+  }
+
+

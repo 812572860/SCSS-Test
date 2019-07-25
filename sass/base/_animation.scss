@@ -1,0 +1,41 @@
+//所有的动画效果定义
+
+@keyframes moveToLeft {
+    0% {
+      transform: translateX(-5rem)
+    }
+  
+    80% {
+      transform: translateX(1rem)
+    }
+  
+    100% {
+      transform: translateX(0)
+    }
+  }
+  
+  @keyframes moveToRight {
+    0% {
+      transform: translateX(5rem)
+    }
+  
+    80% {
+      transform: translateX(-1rem)
+    }
+  
+    100% {
+      transform: translateX(0)
+    }
+  }
+  
+  @keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  }

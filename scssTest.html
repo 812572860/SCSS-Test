@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SCSS TEST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style lang="scss">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        $color-first:#f9ed69;
+        $color-secondary:#f08a5d;
+        $color-third:#b83b5e;
+        $color-text-dark:#333;
+        $color-text-light:#eee;
+
+        $mainPxValue:30px;
+        $width-button:150px;
+
+        @mixin context_float {
+            &::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+        }
+
+        @mixin text_transform($colo) {
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+            color: $colo;
+        }
+
+        @function getPxValue($times) {
+            @return $mainPxValue * $times;
+        }
+
+        nav {
+            margin: getPxValue(1);
+            background-color: $color-first;
+            @include context_float;
+        }
+
+        .navigation {
+            list-style: none;
+            float: left;
+
+            li {
+                display: inline-block;
+                margin-left: 30px;
+
+                &:first-child {
+                    margin: 0;
+                }
+
+                a:link {
+                    @include text_transform($color-text-dark);
+                }
+            }
+        }
+
+        .buttons {
+            float: right;
+        }
+
+        %button_common {
+            padding: 10px;
+            display: inline-block;
+            @include text_transform($color-text-light);
+            width: getPxValue(3);
+            border-radius: 50px;
+        }
+
+        .btn-main {
+            &:link {
+                @extend %button_common;
+                background-color: $color-secondary;
+            }
+
+            &:hover {
+                background-color: darken($color-secondary, 15%)
+            }
+        }
+
+        .btn-sub {
+            &:link {
+                @extend %button_common;
+                background-color: $color-third;
+            }
+
+            &:hover {
+                background-color: lighten($color-secondary, 15%)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="navigation">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Calling us</a></li>
+        </ul>
+        <div class="buttons">
+            <a class="btn-main" href="#">Sign in</a>
+            <a class="btn-sub" href="#">Login in</a>
+        </div>
+    </nav>
+</body>
+
+</html>

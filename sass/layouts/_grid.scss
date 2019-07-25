@@ -1,0 +1,69 @@
+.grid-row {
+    //background-color: #eee;
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    @include clearfix;
+
+    //^=a为以a开头  *=a为包含a  $=a为以a结尾
+    [class^="col-"] {
+        font-size: 1.5rem;
+        color: $color-text-dark;
+        line-height: $grid-row-height;
+        //background-color: $color-secondary;
+        float: left;
+        padding: 1rem;
+
+        &:not(:last-child) {
+            margin-right: $grid-gutter-horizontal;
+        }
+    } 
+
+    .col-1-of-2 {
+        width: calc((100% - #{$grid-gutter-horizontal})/2);
+        // @extend %col-item;
+    }
+
+    .col-1-of-3 {
+        width:calc((100% - #{$grid-gutter-horizontal} * 2)/3);
+        // @extend %col-item;
+    }
+
+    .col-2-of-3 {
+        // @extend %col-item;
+        width: calc(100% - #{$grid-gutter-horizontal} - (100% - #{$grid-gutter-horizontal} * 2)/3);
+    }
+
+    .col-1-of-4 {
+        // @extend %col-item;
+        width: calc((100% - #{$grid-gutter-horizontal}*3)/4);
+    }
+
+    .col-2-of-4 {
+        // @extend %col-item;
+        width: calc(100% - #{$grid-gutter-horizontal}*2 - (100% - #{$grid-gutter-horizontal}*3)/2);
+    }
+
+    .col-3-of-4 {
+        // @extend %col-item;
+        width: calc(100% - #{$grid-gutter-horizontal} - (100% - #{$grid-gutter-horizontal}*3)/4);
+    }
+
+}
+
+// %col-item {
+//     font-size: 1.5rem;
+//     color: $color-text-dark;
+//     line-height: $grid-row-height;
+//     background-color: $color-secondary;
+//     float: left;
+//     padding: 1rem;
+
+//     &:not(:last-child) {
+//         margin-right: $grid-gutter-horizontal;
+//     }
+// }
